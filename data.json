@@ -815,7 +815,12 @@
       }
     },
     "Saint-Denis-Université": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Basilique de Saint-Denis"
+      	}
+      ],
       "location": {
         "long": 2.3620451929905992,
         "lat": 48.94611087248738
@@ -902,6 +907,10 @@
         {
           "line": "M13",
           "station_name": "Brochant"
+        },
+        {
+          "line": "M13",
+          "station_name": "Guy-Môquet"
         }
       ],
       "location": {
@@ -966,6 +975,14 @@
         {
           "line": "M11",
           "station_name": "Jourdain"
+        },
+        {
+          "line": "M7b",
+          "station_name": "Pré-Saint-Gervais"
+        },
+        {
+          "line": "M7b",
+          "station_name": "Botzaris"
         }
       ],
       "location": {
@@ -1038,7 +1055,16 @@
       }
     },
     "Carrefour-Pleyel": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Saint-Denis - Porte de Paris"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Mairie de Saint-Ouen"
+      	}
+      ],
       "location": {
         "long": 2.3439094197858905,
         "lat": 48.9199435050834
@@ -1913,6 +1939,10 @@
         {
           "line": "M7b",
           "station_name": "Buttes-Chaumont"
+        },
+        {
+          "line": "M7b",
+          "station_name": "Place des Fêtes"
         }
       ],
       "location": {
@@ -2515,6 +2545,10 @@
         {
           "line": "M7b",
           "station_name": "Danube"
+        },
+        {
+          "line": "M7b",
+          "station_name": "Place des Fêtes"
         }
       ],
       "location": {
@@ -3541,7 +3575,16 @@
       }
     },
     "Guy-Môquet": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "La Fourche"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Porte de Saint-Ouen"
+      	}
+      ],
       "location": {
         "long": 2.3274958394904894,
         "lat": 48.893009056051206
@@ -3884,7 +3927,16 @@
       }
     },
     "Basilique de Saint-Denis": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Saint-Denis-Université"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Saint-Denis - Porte de Paris"
+      	}
+      ],
       "location": {
         "long": 2.3596397453045825,
         "lat": 48.936477492650496
@@ -4267,7 +4319,16 @@
       }
     },
     "Saint-Denis - Porte de Paris": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Basilique de Saint-Denis"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Carrefour-Pleyel"
+      	}
+      ],
       "location": {
         "long": 2.3561861491888694,
         "lat": 48.92992666527093
@@ -4621,7 +4682,16 @@
       }
     },
     "Porte de Saint-Ouen": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Guy-Môquet"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Garibaldi"
+      	}
+      ],
       "location": {
         "long": 2.329021647212208,
         "lat": 48.89751173277147
@@ -5108,7 +5178,16 @@
       }
     },
     "Mairie de Saint-Ouen": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Carrefour-Pleyel"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Garibaldi"
+      	}
+      ],
       "location": {
         "long": 2.3337369648420916,
         "lat": 48.91162168038383
@@ -5131,7 +5210,16 @@
       }
     },
     "Garibaldi": {
-      "links": [],
+      "links": [
+      	{
+      	  "line": "M13",
+      	  "station_name": "Porte de Saint-Ouen"
+      	},
+      	{
+      	  "line": "M13",
+      	  "station_name": "Mairie de Saint-Ouen"
+      	}
+      ],
       "location": {
         "long": 2.3319104734589318,
         "lat": 48.906382164226436

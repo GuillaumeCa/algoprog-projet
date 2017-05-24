@@ -6,10 +6,6 @@ package com.isep.algoprog.projet;
  */
 public class GraphTest {
 
-	
-
-
 	public static void main(String[] args) {
-
 	}
 }
