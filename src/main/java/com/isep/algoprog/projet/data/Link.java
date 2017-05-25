@@ -26,4 +26,12 @@ public class Link {
     public void setStation_name(String station_name) {
         this.station_name = station_name;
     }
+
+    @Override
+    public String toString() {
+        return "Link{" +
+                "line='" + line + '\'' +
+                ", station_name='" + station_name + '\'' +
+                '}';
+    }
 }

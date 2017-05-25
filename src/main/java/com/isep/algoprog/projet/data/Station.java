@@ -8,19 +8,16 @@ import java.util.List;
  */
 public class Station {
 
-    private String name;
+    private List<String> lines;
     private List<Link> links;
     private Location location;
 
-    public Station() {
+    public List<String> getLines() {
+        return lines;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setLines(List<String> lines) {
+        this.lines = lines;
     }
 
     public List<Link> getLinks() {
@@ -37,5 +34,14 @@ public class Station {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Station{" +
+                "lines=" + lines +
+                ", links=" + links +
+                ", location=" + location +
+                '}';
     }
 }

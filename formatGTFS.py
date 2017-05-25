@@ -25,8 +25,8 @@ def readStops(name, data):
 
             if "location" not in data_dic['stops'][line[2]]:
                 data_dic['stops'][line[2]]['location'] = {
-                    "lat": float(line[4]),
-                    "long": float(line[5])
+                    "latitude": float(line[4]),
+                    "longitude": float(line[5])
                 }
 
 
