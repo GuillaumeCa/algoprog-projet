@@ -2,7 +2,7 @@
 import json, csv
 
 lines_name = ["1", "2", "3", "3b", "4", "5", "6", "7", "7b", "8", "9", "10", "11", "12", "13", "14"]
-# lines_name = ["3", "3b"]
+# lines_name = ["4"]
 
 folder_save = "lignes/json"
 
@@ -13,10 +13,6 @@ data_dic['stops'] = {}
 
 def getFolderData(line):
     return "lignes/RATP_GTFS_METRO_{}".format(line)
-
-def saveData(line_name, data):
-    graph_file = open("{}/graph-metro-{}.json".format(folder_save, line_name), 'w')
-    graph_file.write(data)
 
 def readStops(name, data):
     for index, line in enumerate(data):
@@ -52,24 +48,30 @@ def readStopTime(name, data):
     trips = []
     stops = []
     lastId = None
+    lastSize = 0
     for index, stop in enumerate(data):
         if index != 0:
-            if lastId == stop[0] or lastId == None:
+            if lastId == None or lastId < int(stop[4]) :
                 stops += [{
                     "line": "M"+name,
                     "station_name": getStationNameFromId(stop[3])
                 }]
             else:
                 if stops not in trips:
-                    trips += [stops]
+                    if lastSize == 0 or len(stops) > float(lastSize) * 0.7:
+                        trips += [stops]
+                    if lastSize == 0:
+                        lastSize = len(stops)
                 stops = []
-            lastId = stop[0]
+            lastId = int(stop[4])
 
+    print(name, len(trips))
     for trip in trips:
         for index, stop in enumerate(trip):
             if index > 0:
                 addLink(stop, trip[index-1])
             if index < len(trip) - 1:
+                # print(stop)
                 addLink(stop, trip[index+1])
 
 
