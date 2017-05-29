@@ -3,6 +3,7 @@ package com.isep.algoprog.projet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
+import com.isep.algoprog.projet.graph.Graph;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,7 +15,7 @@ import java.nio.file.Paths;
  */
 public class GraphTest {
 
-	public static void main(String[] args) throws IOException {
+	private static void readJson() throws IOException {
 		byte[] data =  Files.readAllBytes(Paths.get("data.json"));
 
 		ObjectMapper om = new ObjectMapper();
@@ -22,5 +23,11 @@ public class GraphTest {
 
 		Station station = network.getStops().get("Montparnasse-Bienvenue");
 		System.out.println(station);
+	}
+
+	public static void main(String[] args) throws IOException {
+//		readJson();
+		Graph graph = new Graph();
+		graph.build("data.json");
 	}
 }
