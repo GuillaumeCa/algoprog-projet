@@ -5,6 +5,7 @@ import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
 import com.isep.algoprog.projet.graph.Graph;
 import com.isep.algoprog.projet.shortestPath.BFS;
+import com.isep.algoprog.projet.shortestPath.Diameter;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,5 +33,7 @@ public class GraphTest {
 		graph.build("data.json");
         BFS myBfs = new BFS(graph, "Grands Boulevards");
         myBfs.printSP("Grands Boulevards", "Olympiades");
+
+        Diameter diameter = new Diameter(graph);
 	}
 }

@@ -52,7 +52,7 @@ public class BFS {
         return false;
     }
 
-    public void printSP(String firstStation,String lastStation){
+    public ArrayList<String> printSP(String firstStation,String lastStation){
         String prev = lastStation;
         ArrayList<String> stack = new ArrayList<String>();
         stack.add(lastStation);
@@ -70,5 +70,7 @@ public class BFS {
             }
 
         }
+        return stack;
     }
+
 }
