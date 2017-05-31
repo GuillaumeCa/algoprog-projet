@@ -19,7 +19,11 @@ public class Node {
 		this.lines = data.getLines();
 	}
 
-	public void addEdge(Edge edge) {
+    public List<Edge> getEdges() {
+        return edges;
+    }
+
+    public void addEdge(Edge edge) {
 		edges.add(edge);
 	}
 

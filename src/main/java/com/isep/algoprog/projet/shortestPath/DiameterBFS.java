@@ -10,15 +10,15 @@ import java.util.Map;
 /**
  * Created by alizeefaytre on 31/05/2017.
  */
-public class Diameter {
+public class DiameterBFS {
 
-    public Diameter(Graph G){
+    public DiameterBFS(Graph G){
         Map<ArrayList<String>, Double> spList = new HashMap<ArrayList<String>, Double>();
         for (String node:G.getNodes().keySet()) {
             BFS bfs = new BFS(G, node);
             for (String secondNode:G.getNodes().keySet()) {
                 if (!node.equals(secondNode)){
-                    spList.put(bfs.printSP(node, secondNode), new Double(bfs.printSP(node, secondNode).size()));
+                    spList.put(bfs.printSP(node, secondNode), bfs.getDistance().get(secondNode));
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.isep.algoprog.projet.shortestPath;
 
+import com.isep.algoprog.projet.graph.Edge;
 import com.isep.algoprog.projet.graph.Graph;
 
 import java.util.*;
@@ -15,6 +16,9 @@ public class BFS {
     private Map<String, String> previous;
     private Map<String, Double> distance;
 
+    public Map<String, Double> getDistance() {
+        return distance;
+    }
 
     public BFS(Graph G, String firstStation){
         Queue<String> queue = new LinkedList<String>();
@@ -37,7 +41,24 @@ public class BFS {
                 if (!marked.containsKey(neighbor)){
                     marked.put(neighbor, TRUE);
                     previous.put(neighbor, activeNode);
-                    distance.put(neighbor, distance.get(activeNode)+ new Double(1));
+                    // on recupère la distance entre les deux stations
+                    Double dist = new Double(0);
+                    for (Edge edge:G.getNodes().get(activeNode).getEdges()) {
+                        String source = "" ;
+                        String dest = "" ;
+                        for (String key:G.getNodes().keySet()) {
+                            if(edge.getSource().equals(G.getNodes().get(key))){
+                                source = key ;
+                            }
+                            if(edge.getDest().equals(G.getNodes().get(key))){
+                                dest = key ;
+                            }
+                        }
+                        if (source.equals(activeNode) && dest.equals(neighbor)){
+                            dist = edge.getDistance();
+                        }
+                    }
+                    distance.put(neighbor, distance.get(activeNode)+ dist);
                     queue.add(neighbor);
                 }
             }

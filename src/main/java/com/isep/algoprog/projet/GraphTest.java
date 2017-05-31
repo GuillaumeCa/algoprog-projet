@@ -5,7 +5,7 @@ import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
 import com.isep.algoprog.projet.graph.Graph;
 import com.isep.algoprog.projet.shortestPath.BFS;
-import com.isep.algoprog.projet.shortestPath.Diameter;
+import com.isep.algoprog.projet.shortestPath.DiameterBFS;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -34,6 +34,6 @@ public class GraphTest {
         BFS myBfs = new BFS(graph, "Grands Boulevards");
         myBfs.printSP("Grands Boulevards", "Olympiades");
 
-        Diameter diameter = new Diameter(graph);
+        DiameterBFS diameter = new DiameterBFS(graph);
 	}
 }

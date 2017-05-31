@@ -19,6 +19,22 @@ public class Edge {
 		this.distance = computeDistance(); // en metres
 	}
 
+	public Node getSource() {
+		return source;
+	}
+
+	public Node getDest() {
+		return dest;
+	}
+
+	public String getLine() {
+		return line;
+	}
+
+	public double getDistance() {
+		return distance;
+	}
+
 	private double computeDistance() {
 		Location l1 = source.getData().getLocation();
 		Location l2 = dest.getData().getLocation();
