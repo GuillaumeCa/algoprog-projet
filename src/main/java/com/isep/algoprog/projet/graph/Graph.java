@@ -16,7 +16,11 @@ import java.util.Map;
  * algoprog-projet
  */
 public class Graph {
-	private Map<String, Node> nodes = new HashMap<>();
+	private Map<String, Node> nodes = new HashMap();
+
+	public Map<String, Node> getNodes() {
+		return nodes;
+	}
 
 	public void build(String filename) throws IOException {
 		byte[] data =  Files.readAllBytes(Paths.get(filename));
