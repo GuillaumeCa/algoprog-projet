@@ -81,7 +81,13 @@ public class BFS {
            prev = previous.get(prev);
             stack.add(prev);
         }
+        System.out.println("voici le SP avec BFS : ");
 
+        // Décommenter cette partie pour afficher dans la console le shortest path
+        //  |
+        //  v
+
+        /*System.out.println("voici le SP avec BFS : ");
         for (int i = stack.size()-1; i>=0; i--) {
             if (stack.get(i) == lastStation){
                 System.out.print(stack.get(i));
@@ -90,7 +96,7 @@ public class BFS {
                 System.out.print(stack.get(i) + " => ");
             }
 
-        }
+        }*/
         return stack;
     }
 

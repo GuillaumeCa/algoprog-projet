@@ -6,6 +6,8 @@ import com.isep.algoprog.projet.data.Station;
 import com.isep.algoprog.projet.graph.Graph;
 import com.isep.algoprog.projet.shortestPath.BFS;
 import com.isep.algoprog.projet.shortestPath.DiameterBFS;
+import com.isep.algoprog.projet.shortestPath.DiameterDijkstra;
+import com.isep.algoprog.projet.shortestPath.Dijkstra;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -34,6 +36,12 @@ public class GraphTest {
         BFS myBfs = new BFS(graph, "Grands Boulevards");
         myBfs.printSP("Grands Boulevards", "Olympiades");
 
+
+        Dijkstra myDijkstra = new Dijkstra(graph, "Grands Boulevards");
+        myDijkstra.printSP("Grands Boulevards", "Olympiades");
+
         DiameterBFS diameter = new DiameterBFS(graph);
+
+        DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
 	}
 }
