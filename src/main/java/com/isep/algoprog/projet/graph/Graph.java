@@ -16,7 +16,7 @@ import java.util.Map;
  * algoprog-projet
  */
 public class Graph {
-	private Map<String, Node> nodes = new HashMap();
+	private Map<String, Node> nodes = new HashMap<>();
 
 	public Map<String, Node> getNodes() {
 		return nodes;
@@ -35,7 +35,7 @@ public class Graph {
 		// on crée tout les nodes en premier
 		for (String key: network.getStops().keySet()) {
 			Station station = network.getStops().get(key);
-			Node source = new Node(station);
+			Node source = new Node(key, station);
 			nodes.put(key, source);
 		}
 		// puis on ajoute les edge en reprenant les références des nodes

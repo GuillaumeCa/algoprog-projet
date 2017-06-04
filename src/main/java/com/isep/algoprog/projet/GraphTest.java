@@ -34,14 +34,16 @@ public class GraphTest {
 		Graph graph = new Graph();
 		graph.build("data.json");
         BFS myBfs = new BFS(graph, "Grands Boulevards");
-        myBfs.printSP("Grands Boulevards", "Olympiades");
+		System.out.println("BFS Grand Boulevards - Olympiades: \n");
+		myBfs.printSP("Grands Boulevards", "Olympiades");
 
 
         Dijkstra myDijkstra = new Dijkstra(graph, "Grands Boulevards");
+		System.out.println("\nDijkstra Grand Boulevards - Olympiades: ");
         myDijkstra.printSP("Grands Boulevards", "Olympiades");
 
-        DiameterBFS diameter = new DiameterBFS(graph);
+//        DiameterBFS diameter = new DiameterBFS(graph);
 
-        DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
+//        DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
 	}
 }
