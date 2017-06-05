@@ -53,8 +53,7 @@ public class ShortestPath {
                     System.out.println(ShortestPath.size());
                     outerArray.add(innerObject);
                 }else{
-                    innerArray.add("");
-                    innerObject.put("Path",innerArray);
+                    innerObject.put("Path","");
                     innerObject.put("End",end);
                     innerObject.put("Start",start);
                     System.out.println(ShortestPath.size());
@@ -66,4 +65,25 @@ public class ShortestPath {
             ffw.close(); // fermer le fichier à la fin des traitements
         }
     }
+     public void test() throws IOException {
+         File ff=new File("test.json"); // définir l'arborescence
+         ff.createNewFile();
+         FileWriter ffw=new FileWriter(ff);
+         JSONObject outerObject = new JSONObject();
+         JSONArray outerArray = new JSONArray();
+        JSONObject innerObject = new JSONObject();
+        JSONArray innerArray = new JSONArray();
+        innerArray.add("pied");
+        innerArray.add("pied");
+        innerArray.add("pied");
+        innerArray.add("pied");
+        innerObject.put("Path",innerArray);
+        innerObject.put("End","Paris");
+        innerObject.put("Start","Orleans");
+        outerArray.add(innerObject);
+        outerObject.put("ShortestPath",outerArray);
+         ffw.write(outerObject.toJSONString());
+         ffw.close(); // fermer le fichier à la fin des traitements
+     }
+
 }
