@@ -7,6 +7,15 @@ import java.util.List;
  * Created by alizeefaytre on 22/05/2017.
  */
 public class Station {
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     private List<String> lines;
     private List<Link> links;
@@ -39,7 +48,8 @@ public class Station {
     @Override
     public String toString() {
         return "Station{" +
-                "lines=" + lines +
+                "name='" + name + '\'' +
+                ", lines=" + lines +
                 ", links=" + links +
                 ", location=" + location +
                 '}';

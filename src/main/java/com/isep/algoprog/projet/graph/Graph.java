@@ -16,10 +16,20 @@ import java.util.Map;
  * algoprog-projet
  */
 public class Graph {
-	private Map<String, Node> nodes = new HashMap<>();
+	private Map<String, Node> nodes = new HashMap();
+	private Network network = new Network();
 
 	public Map<String, Node> getNodes() {
 		return nodes;
+	}
+
+	public void setNetwork(Network network) {
+		this.network = network;
+	}
+
+	public Network getNetwork() {
+
+		return network;
 	}
 
 	public void build(String filename) throws IOException {
@@ -28,14 +38,18 @@ public class Graph {
 		ObjectMapper om = new ObjectMapper();
 		// création de l'objet network a partir du json
 		Network network = om.readValue(data, Network.class);
+		setNetwork(network);
 		addNodes(network);
+		for (String name:network.getStops().keySet() ) {
+			network.getStops().get(name).setName(name);
+		}
 	}
 
 	private void addNodes(Network network) {
 		// on crée tout les nodes en premier
 		for (String key: network.getStops().keySet()) {
 			Station station = network.getStops().get(key);
-			Node source = new Node(key, station);
+			Node source = new Node(key,station);
 			nodes.put(key, source);
 		}
 		// puis on ajoute les edge en reprenant les références des nodes

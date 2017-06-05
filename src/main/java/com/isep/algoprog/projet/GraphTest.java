@@ -1,8 +1,14 @@
+
 package com.isep.algoprog.projet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.isep.algoprog.projet.Cluster.Cluster;
+import com.isep.algoprog.projet.Cluster.EdgeBuilder;
+import com.isep.algoprog.projet.Cluster.ShortestPath;
+import com.isep.algoprog.projet.Cluster.edgeCounter;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
+import com.isep.algoprog.projet.graph.Edge;
 import com.isep.algoprog.projet.graph.Graph;
 import com.isep.algoprog.projet.shortestPath.BFS;
 import com.isep.algoprog.projet.shortestPath.DiameterBFS;
@@ -33,17 +39,21 @@ public class GraphTest {
 //		readJson();
 		Graph graph = new Graph();
 		graph.build("data.json");
-        BFS myBfs = new BFS(graph, "Grands Boulevards");
-		System.out.println("BFS Grand Boulevards - Olympiades: \n");
-		myBfs.printSP("Grands Boulevards", "Olympiades");
 
+       // BFS myBfs = new BFS(graph, "Grands Boulevards");
+       // myBfs.printSP("Grands Boulevards", "Olympiades");
+       //Dijkstra myDijkstra = new Dijkstra(graph, "Grands Boulevards");
+       // myDijkstra.printSP("Grands Boulevards", "Olympiades");
+		//ShortestPath shortestPath = new ShortestPath();
+		//shortestPath.build(graph);
+       // EdgeBuilder edgeBuilder=new EdgeBuilder();
+        //edgeBuilder.edgeBuilder(graph);
+       // DiameterBFS diameter = new DiameterBFS(graph);
+        // DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
+		edgeCounter EdgeCounter= new edgeCounter();
+		EdgeCounter.build();
 
-        Dijkstra myDijkstra = new Dijkstra(graph, "Grands Boulevards");
-		System.out.println("\nDijkstra Grand Boulevards - Olympiades: ");
-        myDijkstra.printSP("Grands Boulevards", "Olympiades");
-
-//        DiameterBFS diameter = new DiameterBFS(graph);
-
-//        DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
+//		edgeCounter test= new edgeCounter();
+//		test.build();
 	}
 }
