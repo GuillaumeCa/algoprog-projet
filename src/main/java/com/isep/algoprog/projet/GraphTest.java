@@ -7,6 +7,8 @@ import com.isep.algoprog.projet.Cluster.ShortestPath;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
 import com.isep.algoprog.projet.graph.Graph;
+import com.isep.algoprog.projet.shortestPath.DiameterBFS;
+import com.isep.algoprog.projet.shortestPath.DiameterDijkstra;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,8 +43,10 @@ public class GraphTest {
 		// myDijkstra.printSP("Edgar-Quinet", "Gare d'Austerlitz");
 
 
-       // DiameterBFS diameter = new DiameterBFS(graph);
-        // DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
+        // DiameterBFS diameter = new DiameterBFS(graph);
+        // diameter.printDistanceLP();
+        DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
+        diameterDijkstra.printDistanceLP();
 
 		// Créer tout les ShortestPath pour chaque station//
 		//ShortestPath shortestPath = new ShortestPath();

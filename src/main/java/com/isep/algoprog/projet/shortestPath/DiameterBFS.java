@@ -1,5 +1,6 @@
 package com.isep.algoprog.projet.shortestPath;
 
+import com.isep.algoprog.projet.graph.Edge;
 import com.isep.algoprog.projet.graph.Graph;
 import com.isep.algoprog.projet.graph.Node;
 
@@ -12,8 +13,11 @@ import java.util.Map;
  * Created by alizeefaytre on 31/05/2017.
  */
 public class DiameterBFS {
+    private List<String> key;
+    private Graph G;
 
 	public DiameterBFS(Graph G) {
+	    this.G = G;
 		Map<List<String>, Double> spList = new HashMap<>();
 		for (String node : G.getNodes().keySet()) {
 			BFS bfs = new BFS(G, node);
@@ -25,7 +29,7 @@ public class DiameterBFS {
 		}
 
 		Double lgPath = 0.0;
-		List<String> key = new ArrayList<>();
+		key = new ArrayList<>();
 		for (List<String> distance : spList.keySet()) {
 			if (spList.get(distance) > lgPath) {
 				lgPath = spList.get(distance);
@@ -40,4 +44,25 @@ public class DiameterBFS {
 			System.out.print(s + " || ");
 		}
 	}
+
+	public void printDistanceLP(){
+        System.out.println("Les distances entre les stations sur le longest path sont :");
+        for (int i = 0; i < key.size(); i++) {
+            String station = key.get(i);
+            if (station != key.get(key.size()-1)){
+                String nextStation = key.get(i+1);
+                List<Edge> edges = G.getNodes().get(station).getEdges();
+                Double distance = new Double(0);
+                for (Edge edge: edges) {
+                    Node source = G.getNodes().get(station);
+                    Node dest = G.getNodes().get(nextStation);
+                    if (edge.getSource().equals(source) && edge.getDest().equals(dest)){
+                        distance = edge.getDistance();
+                    }
+                }
+
+                System.out.println(station + " - " + nextStation + ": " + distance.toString());
+            }
+        }
+    }
 }
