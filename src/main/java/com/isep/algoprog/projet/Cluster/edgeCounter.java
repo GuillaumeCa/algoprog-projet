@@ -12,9 +12,10 @@ import java.util.*;
 /**
  * Created by Alex-PC on 05/06/2017.
  */
-public class edgeCounter {
+public class EdgeCounter {
     private ArrayList<Path> ShortestPath= new ArrayList<>();
     private Map<String,Integer> mostRecurent;
+    Map<String,Integer> top = new HashMap<>();
 
     public ArrayList<Path> getShortestPath() {
         return ShortestPath;
@@ -63,18 +64,22 @@ public class edgeCounter {
         System.out.println(mostRecurent);
         Max();
     }
-    public void test(){
-        String folder="ShortestPath\\";
-        File file = new File(folder);
-        File[] files = file.listFiles();
-        for (File elem:files) {
-            System.out.println(elem.getName());
-        }
+
+    public Map<String, Integer> getTop() {
+        return top;
     }
-    public void Max(){
+
+    public void setTop(Map<String, Integer> top) {
+        this.top = top;
+    }
+
+    public void Max() throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
         Map<String,Integer> map = getMostRecurent();
         Map<String,Integer> top = new HashMap<>();
         int tampon=0;
+
         String index="";
         for (int i=0; i<10;i++) {
             for (String elem : map.keySet()) {
@@ -88,8 +93,8 @@ public class edgeCounter {
             top.put(index,tampon);
             tampon=0;
         }
-        System.out.println(top);
-
+        setTop(top);
+        mapper.writeValue(new File("TopEdges.json"),top);
     }
 
 }

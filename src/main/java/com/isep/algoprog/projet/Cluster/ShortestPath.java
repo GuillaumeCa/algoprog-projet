@@ -43,8 +43,6 @@ public class ShortestPath {
             List<Path> list = shortestPath.getShortestPath();
             System.out.println(index);
             for (String end:station) {
-                JSONObject innerObject = new JSONObject();
-                JSONArray innerArray = new JSONArray();
                 if (start!=end){
                     ArrayList<String> edge =new ArrayList<String>();
                     ArrayList<String> path = new ArrayList<String>();
@@ -55,9 +53,6 @@ public class ShortestPath {
                     Path chemin= new Path(start,end,path);
                     list.add(chemin);
                 }else{
-                    innerObject.put("Path","");
-                    innerObject.put("End",end);
-                    innerObject.put("Start",start);
                     Path chemin= new Path(start,end,null);
                     list.add(chemin);
                 }
@@ -67,46 +62,10 @@ public class ShortestPath {
             mapper.writeValue(new File("ShortestPath\\"+start + ".json"),shortestPath);
         }
     }
-
     @Override
     public String toString() {
         return "ShortestPath{" +
                 "shortestPath=" + shortestPath +
                 '}';
     }
-
-    public void test() throws IOException {
-         ObjectMapper mapper = new ObjectMapper();
-        ShortestPath coucou=new ShortestPath();
-        List<Path> list=new ArrayList<>();
-        Path test = new Path();
-         test.setStart("Marseille");
-         test.setEnd("Orleans");
-
-         ArrayList<String> path = new ArrayList<>();
-         path.add("s1");
-         path.add("s2");
-         path.add("s3");
-
-         test.setPath(path);
-         list.add(test);
-
-        Path testo = new Path();
-        testo.setStart("Paris");
-        testo.setEnd("Orleans");
-
-        ArrayList<String> patho = new ArrayList<>();
-        patho.add("s1");
-        patho.add("s2");
-        patho.add("s3");
-
-        testo.setPath(patho);
-        list.add(testo);
-
-         coucou.setShortestPath(list);
-         mapper.writeValue(new File("test.json"),coucou);
-
-
-     }
-
 }

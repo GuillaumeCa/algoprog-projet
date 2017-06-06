@@ -4,8 +4,8 @@ package com.isep.algoprog.projet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isep.algoprog.projet.Cluster.Cluster;
 import com.isep.algoprog.projet.Cluster.EdgeBuilder;
+import com.isep.algoprog.projet.Cluster.EdgeCounter;
 import com.isep.algoprog.projet.Cluster.ShortestPath;
-import com.isep.algoprog.projet.Cluster.edgeCounter;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
 import com.isep.algoprog.projet.graph.Edge;
@@ -42,20 +42,25 @@ public class GraphTest {
 
        // BFS myBfs = new BFS(graph, "Grands Boulevards");
        // myBfs.printSP("Grands Boulevards", "Olympiades");
+
+
       // Dijkstra myDijkstra = new Dijkstra(graph, "Edgar-Quinet");
 		// myDijkstra.printSP("Edgar-Quinet", "Gare d'Austerlitz");
-	    //ShortestPath shortestPath = new ShortestPath();
-		//shortestPath.build(graph);
-        //shortestPath.test();
-        EdgeBuilder edgeBuilder=new EdgeBuilder();
-        edgeBuilder.test(graph);
+
+
        // DiameterBFS diameter = new DiameterBFS(graph);
         // DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
-//		edgeCounter EdgeCounter= new edgeCounter();
-//		EdgeCounter.build();
 
-	//	edgeCounter test= new edgeCounter();
-	//	test.build();
-		//test.test();
+		// Créer tout les ShortestPath pour chaque station//
+		ShortestPath shortestPath = new ShortestPath();
+		shortestPath.build(graph);
+
+		// Créer tout les Edges sous le format Edge2 //
+		//EdgeBuilder edgeBuilder=new EdgeBuilder();
+		//edgeBuilder.edgeBuilder(graph);
+
+		// Créer le TopEdges.json//
+		EdgeCounter edgeCounter= new EdgeCounter();
+		edgeCounter.build();
 	}
 }
