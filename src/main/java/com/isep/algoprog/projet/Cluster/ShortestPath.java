@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.graph.Edge;
 import com.isep.algoprog.projet.graph.Graph;
+import com.isep.algoprog.projet.graph.Node;
 import com.isep.algoprog.projet.shortestPath.Dijkstra;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -33,8 +34,8 @@ public class ShortestPath {
 
     public void build(Graph g) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Network test = g.getNetwork();
-        for (String elem:test.getStops().keySet()) {
+        Map<String,Node> map = g.getNodes();
+        for (String elem:map.keySet()) {
             station.add(elem);
         }
         int index=0;

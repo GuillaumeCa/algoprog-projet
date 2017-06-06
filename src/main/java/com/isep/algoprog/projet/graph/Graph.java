@@ -17,20 +17,11 @@ import java.util.Map;
  */
 public class Graph {
 	private Map<String, Node> nodes = new HashMap();
-	private Network network = new Network();
 
 	public Map<String, Node> getNodes() {
 		return nodes;
 	}
 
-	public void setNetwork(Network network) {
-		this.network = network;
-	}
-
-	public Network getNetwork() {
-
-		return network;
-	}
 
 	public void build(String filename) throws IOException {
 		byte[] data =  Files.readAllBytes(Paths.get(filename));
@@ -38,7 +29,6 @@ public class Graph {
 		ObjectMapper om = new ObjectMapper();
 		// création de l'objet network a partir du json
 		Network network = om.readValue(data, Network.class);
-		setNetwork(network);
 		addNodes(network);
 		for (String name:network.getStops().keySet() ) {
 			network.getStops().get(name).setName(name);

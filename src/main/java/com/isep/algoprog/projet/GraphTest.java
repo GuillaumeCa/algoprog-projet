@@ -2,18 +2,11 @@
 package com.isep.algoprog.projet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.isep.algoprog.projet.Cluster.Cluster;
-import com.isep.algoprog.projet.Cluster.EdgeBuilder;
 import com.isep.algoprog.projet.Cluster.EdgeCounter;
 import com.isep.algoprog.projet.Cluster.ShortestPath;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.data.Station;
-import com.isep.algoprog.projet.graph.Edge;
 import com.isep.algoprog.projet.graph.Graph;
-import com.isep.algoprog.projet.shortestPath.BFS;
-import com.isep.algoprog.projet.shortestPath.DiameterBFS;
-import com.isep.algoprog.projet.shortestPath.DiameterDijkstra;
-import com.isep.algoprog.projet.shortestPath.Dijkstra;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -52,15 +45,15 @@ public class GraphTest {
         // DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
 
 		// Créer tout les ShortestPath pour chaque station//
-		ShortestPath shortestPath = new ShortestPath();
-		shortestPath.build(graph);
+		//ShortestPath shortestPath = new ShortestPath();
+		//shortestPath.build(graph);
 
 		// Créer tout les Edges sous le format Edge2 //
 		//EdgeBuilder edgeBuilder=new EdgeBuilder();
 		//edgeBuilder.edgeBuilder(graph);
 
 		// Créer le TopEdges.json//
-		EdgeCounter edgeCounter= new EdgeCounter();
-		edgeCounter.build();
+		//EdgeCounter edgeCounter= new EdgeCounter();
+		//edgeCounter.build();
 	}
 }

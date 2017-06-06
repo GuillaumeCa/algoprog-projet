@@ -39,7 +39,7 @@ public class EdgeCounter {
         File file = new File(folder);
         File[] files = file.listFiles();
         for (File fichier:files) {
-            System.out.println(fichier.getName());
+            //System.out.println(fichier.getName());
             byte[] data = Files.readAllBytes(Paths.get(fichier.getAbsolutePath()));
             ObjectMapper om = new ObjectMapper();
             ShortestPath test = om.readValue(data, ShortestPath.class);
