@@ -20,8 +20,7 @@ import java.util.Map;
  * Created by Alex-PC on 05/06/2017.
  */
 public class ShortestPath {
-    private ArrayList<String> station= new ArrayList<String>();
-    //private Map<ArrayList<String>,ArrayList<String>> ShortestPath = new HashMap<>();
+    private ArrayList<String> station= new ArrayList<>();
     private List<Path> shortestPath= new ArrayList<>();
 
     public List<Path> getShortestPath() {
@@ -38,9 +37,11 @@ public class ShortestPath {
         for (String elem:test.getStops().keySet()) {
             station.add(elem);
         }
+        int index=0;
         for (String start:station) {
             ShortestPath shortestPath = new ShortestPath();
             List<Path> list = shortestPath.getShortestPath();
+            System.out.println(index);
             for (String end:station) {
                 JSONObject innerObject = new JSONObject();
                 JSONArray innerArray = new JSONArray();
@@ -53,19 +54,17 @@ public class ShortestPath {
                     path=dijkstra.printSP(start,end);
                     Path chemin= new Path(start,end,path);
                     list.add(chemin);
-                    System.out.println(list.size());
                 }else{
                     innerObject.put("Path","");
                     innerObject.put("End",end);
                     innerObject.put("Start",start);
-                    //System.out.println(ShortestPath.size());
                     Path chemin= new Path(start,end,null);
                     list.add(chemin);
-                    System.out.println(list.size());
                 }
             }
+            index++;
             shortestPath.setShortestPath(list);
-            mapper.writeValue(new File(start + ".json"),shortestPath);
+            mapper.writeValue(new File("ShortestPath\\"+start + ".json"),shortestPath);
         }
     }
 
@@ -107,11 +106,6 @@ public class ShortestPath {
          coucou.setShortestPath(list);
          mapper.writeValue(new File("test.json"),coucou);
 
-         /*
-         outerObject.put("ShortestPath",test);
-         ffw.write(outerObject.toString());
-         ffw.close(); // fermer le fichier à la fin des traitements
-         */
 
      }
 

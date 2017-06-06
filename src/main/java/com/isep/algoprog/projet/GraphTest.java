@@ -42,19 +42,20 @@ public class GraphTest {
 
        // BFS myBfs = new BFS(graph, "Grands Boulevards");
        // myBfs.printSP("Grands Boulevards", "Olympiades");
-       //Dijkstra myDijkstra = new Dijkstra(graph, "Grands Boulevards");
-       // myDijkstra.printSP("Grands Boulevards", "Olympiades");
+      // Dijkstra myDijkstra = new Dijkstra(graph, "Edgar-Quinet");
+		// myDijkstra.printSP("Edgar-Quinet", "Gare d'Austerlitz");
 	    //ShortestPath shortestPath = new ShortestPath();
 		//shortestPath.build(graph);
         //shortestPath.test();
-       // EdgeBuilder edgeBuilder=new EdgeBuilder();
-        //edgeBuilder.edgeBuilder(graph);
+        EdgeBuilder edgeBuilder=new EdgeBuilder();
+        edgeBuilder.test(graph);
        // DiameterBFS diameter = new DiameterBFS(graph);
         // DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
 //		edgeCounter EdgeCounter= new edgeCounter();
 //		EdgeCounter.build();
 
-		edgeCounter test= new edgeCounter();
-		test.build();
+	//	edgeCounter test= new edgeCounter();
+	//	test.build();
+		//test.test();
 	}
 }

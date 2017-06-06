@@ -8,6 +8,9 @@ import java.util.List;
  */
 public class Station {
     private String name;
+    private List<String> lines;
+    private List<Link> links;
+    private Location location;
 
     public void setName(String name) {
         this.name = name;
@@ -16,11 +19,6 @@ public class Station {
     public String getName() {
         return name;
     }
-
-    private List<String> lines;
-    private List<Link> links;
-    private Location location;
-
     public List<String> getLines() {
         return lines;
     }

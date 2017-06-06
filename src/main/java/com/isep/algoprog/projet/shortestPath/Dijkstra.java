@@ -80,7 +80,7 @@ public class Dijkstra {
 		// Décommenter cette partie pour afficher dans la console le shortest path
 		//  |
 		//  v
-		/*
+
 		for (int i = stack.size() - 1; i >= 0; i--) {
 			if (stack.get(i).equals(lastStation)) {
 				System.out.print(stack.get(i));
@@ -89,7 +89,7 @@ public class Dijkstra {
 			}
 
 		}
-		*/
+		 
 		return stack;
 	}
 }
