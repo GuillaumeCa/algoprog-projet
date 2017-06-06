@@ -44,17 +44,17 @@ public class GraphTest {
        // myBfs.printSP("Grands Boulevards", "Olympiades");
        //Dijkstra myDijkstra = new Dijkstra(graph, "Grands Boulevards");
        // myDijkstra.printSP("Grands Boulevards", "Olympiades");
-	    ShortestPath shortestPath = new ShortestPath();
+	    //ShortestPath shortestPath = new ShortestPath();
 		//shortestPath.build(graph);
         //shortestPath.test();
        // EdgeBuilder edgeBuilder=new EdgeBuilder();
         //edgeBuilder.edgeBuilder(graph);
        // DiameterBFS diameter = new DiameterBFS(graph);
         // DiameterDijkstra diameterDijkstra = new DiameterDijkstra(graph);
-		edgeCounter EdgeCounter= new edgeCounter();
-		EdgeCounter.build();
+//		edgeCounter EdgeCounter= new edgeCounter();
+//		EdgeCounter.build();
 
-//		edgeCounter test= new edgeCounter();
-//		test.build();
+		edgeCounter test= new edgeCounter();
+		test.build();
 	}
 }

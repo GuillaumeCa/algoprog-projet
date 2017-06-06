@@ -1,5 +1,6 @@
 package com.isep.algoprog.projet.Cluster;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.isep.algoprog.projet.data.Network;
 import com.isep.algoprog.projet.graph.Edge;
 import com.isep.algoprog.projet.graph.Graph;
@@ -12,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,23 +21,26 @@ import java.util.Map;
  */
 public class ShortestPath {
     private ArrayList<String> station= new ArrayList<String>();
-    private Map<ArrayList<String>,ArrayList<String>> ShortestPath = new HashMap<ArrayList<String>, ArrayList<String>>();
+    //private Map<ArrayList<String>,ArrayList<String>> ShortestPath = new HashMap<>();
+    private List<Path> shortestPath= new ArrayList<>();
 
-    public Map<ArrayList<String>, ArrayList<String>> getShortestPath() {
-        return ShortestPath;
+    public List<Path> getShortestPath() {
+        return shortestPath;
+    }
+
+    public void setShortestPath(List<Path> shortestPath) {
+        this.shortestPath = shortestPath;
     }
 
     public void build(Graph g) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
         Network test = g.getNetwork();
         for (String elem:test.getStops().keySet()) {
             station.add(elem);
         }
         for (String start:station) {
-            File ff=new File("ShortestPath\\" +start +".json"); // définir l'arborescence
-            ff.createNewFile();
-            FileWriter ffw=new FileWriter(ff);
-            JSONObject outerObject = new JSONObject();
-            JSONArray outerArray = new JSONArray();
+            ShortestPath shortestPath = new ShortestPath();
+            List<Path> list = shortestPath.getShortestPath();
             for (String end:station) {
                 JSONObject innerObject = new JSONObject();
                 JSONArray innerArray = new JSONArray();
@@ -46,44 +51,68 @@ public class ShortestPath {
                     edge.add(end);
                     Dijkstra dijkstra = new Dijkstra(g,start);
                     path=dijkstra.printSP(start,end);
-                    ShortestPath.put(edge,path);
-                    innerObject.put("Path",path);
-                    innerObject.put("End",end);
-                    innerObject.put("Start",start);
-                    System.out.println(ShortestPath.size());
-                    outerArray.add(innerObject);
+                    Path chemin= new Path(start,end,path);
+                    list.add(chemin);
+                    System.out.println(list.size());
                 }else{
                     innerObject.put("Path","");
                     innerObject.put("End",end);
                     innerObject.put("Start",start);
-                    System.out.println(ShortestPath.size());
-                    outerArray.add(innerObject);
+                    //System.out.println(ShortestPath.size());
+                    Path chemin= new Path(start,end,null);
+                    list.add(chemin);
+                    System.out.println(list.size());
                 }
             }
-            outerObject.put("ShortestPath",outerArray);
-            ffw.write(outerObject.toJSONString());
-            ffw.close(); // fermer le fichier à la fin des traitements
+            shortestPath.setShortestPath(list);
+            mapper.writeValue(new File(start + ".json"),shortestPath);
         }
     }
-     public void test() throws IOException {
-         File ff=new File("test.json"); // définir l'arborescence
-         ff.createNewFile();
-         FileWriter ffw=new FileWriter(ff);
-         JSONObject outerObject = new JSONObject();
-         JSONArray outerArray = new JSONArray();
-        JSONObject innerObject = new JSONObject();
-        JSONArray innerArray = new JSONArray();
-        innerArray.add("pied");
-        innerArray.add("pied");
-        innerArray.add("pied");
-        innerArray.add("pied");
-        innerObject.put("Path",innerArray);
-        innerObject.put("End","Paris");
-        innerObject.put("Start","Orleans");
-        outerArray.add(innerObject);
-        outerObject.put("ShortestPath",outerArray);
-         ffw.write(outerObject.toJSONString());
+
+    @Override
+    public String toString() {
+        return "ShortestPath{" +
+                "shortestPath=" + shortestPath +
+                '}';
+    }
+
+    public void test() throws IOException {
+         ObjectMapper mapper = new ObjectMapper();
+        ShortestPath coucou=new ShortestPath();
+        List<Path> list=new ArrayList<>();
+        Path test = new Path();
+         test.setStart("Marseille");
+         test.setEnd("Orleans");
+
+         ArrayList<String> path = new ArrayList<>();
+         path.add("s1");
+         path.add("s2");
+         path.add("s3");
+
+         test.setPath(path);
+         list.add(test);
+
+        Path testo = new Path();
+        testo.setStart("Paris");
+        testo.setEnd("Orleans");
+
+        ArrayList<String> patho = new ArrayList<>();
+        patho.add("s1");
+        patho.add("s2");
+        patho.add("s3");
+
+        testo.setPath(patho);
+        list.add(testo);
+
+         coucou.setShortestPath(list);
+         mapper.writeValue(new File("test.json"),coucou);
+
+         /*
+         outerObject.put("ShortestPath",test);
+         ffw.write(outerObject.toString());
          ffw.close(); // fermer le fichier à la fin des traitements
+         */
+
      }
 
 }

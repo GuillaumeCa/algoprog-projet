@@ -1,5 +1,6 @@
 package com.isep.algoprog.projet.Cluster;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,32 +9,51 @@ import java.util.List;
  * Created by Alex-PC on 05/06/2017.
  */
 public class Path {
-    private String Start;
-    private String End;
-    private List<String> Path=new ArrayList<>();
+    private String start;
+    private String end;
+    private List<String> path;
 
-    public String getEnd() {
-        return End;
-    }
-
-    public void setEnd(String end) {
-        End = end;
-    }
 
     public List<String> getPath() {
-        return Path;
+        return path;
     }
 
     public void setPath(List<String> path) {
-        Path = path;
+        this.path = path;
+    }
+
+    @Override
+    public String toString() {
+        return "Path{" +
+                "start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                ", path=" + path +
+                '}';
     }
 
     public String getStart() {
+        return start;
+    }
 
-        return Start;
+    public Path() {
+    }
+
+    public Path(String start, String end, List<String> path) {
+
+        this.start = start;
+        this.end = end;
+        this.path = path;
     }
 
     public void setStart(String start) {
-        Start = start;
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
     }
 }

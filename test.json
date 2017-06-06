@@ -1,14 +1,1 @@
-{
-  "ShortestPath":[
-    {
-      "Path":[
-        "pied",
-        "pied",
-        "pied",
-        "pied"
-      ],
-      "Start":"Orleans",
-      "End":"Paris"
-    }
-  ]
-}
+{"shortestPath":[{"start":"Marseille","end":"Orleans","path":["s1","s2","s3"]},{"start":"Paris","end":"Orleans","path":["s1","s2","s3"]}]}
