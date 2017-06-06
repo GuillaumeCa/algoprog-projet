@@ -61,7 +61,7 @@ public class EdgeCounter {
             }
         }
         setMostRecurent(mostRecurent);
-        System.out.println(mostRecurent);
+        //System.out.println(mostRecurent);
         Max();
     }
 
